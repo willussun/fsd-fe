@@ -1,0 +1,100 @@
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="card shadow">
+    <p class="h4 card-header">Select Company to compare</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the information</p>
+        <form name="compare" #f="ngForm">
+          
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Company Code</span>
+                </div>
+                <input type="text" name="company-code" class="form-control" [(ngModel)]="companyCode" />
+            </div>
+            <!--
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> Sector Code</span>
+                </div>
+                <input type="text" name="sector-code" class="form-control" [(ngModel)]="sectorCode" />
+            </div>
+
+        -->
+            <!-- <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> Stock Exchange Code</span>
+                </div>
+                <input type="text" name="stock-exchange-code" class="form-control" [(ngModel)]="stockExchangeCode" />
+            </div> -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> Start Date</span>
+                </div>
+                <input type="text" name="start-date" class="form-control" [(ngModel)]="startDate" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">End Date</span>
+                </div>
+                <input type="text" name="end-date" class="form-control" [(ngModel)]="endDate" />
+            </div>
+
+            
+
+            <select class="form-control" name="select-stock-exchange" [(ngModel)]="currentStockExchangeCode">
+                <option [ngValue]="stockExchange.stockExchangeCode" *ngFor="let stockExchange of result3">
+                    {{stockExchange.stockExchangeCode}} ---------- {{stockExchange.stockExchangeName}}
+                </option>
+            </select>
+
+            <select class="form-control" name="select-company" [(ngModel)]="currentCompanyName">
+                    <option [ngValue]="company.companyName" *ngFor="let company of result4">
+                        {{company.companyName}} 
+                    </option>
+                </select>
+      
+
+
+
+                <div class="form-group">
+                    <div *ngFor="let option of options; let i=index">
+                      <div class="radio">
+                        <input type="radio" id="{{option.id}}" name="radio{{i}}" [(ngModel)]="option.value" [value]="option.id" />
+                        <label for="{{option.id}}">{{option.id}}</label>    
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <hr>
+                  
+                  <h2>Values for options</h2>
+                  
+                  <ul>
+                    <ng-container *ngFor="let option of options; let i=index">
+                      <li *ngIf="option.value !== ''">Value for {{option.id}}: {{option.value}}</li>
+                    </ng-container>
+                  </ul>
+
+                  
+
+
+            <button (click)="showChart(f)" type="button">Show Chart</button>
+            <button (click)="addMore(f)" type="button">Add More</button>
+            <button (click)="clear(f)" type="button">Clear</button>
+    </form>
+
+<!-- 
+<h3>
+    {{title}}
+  </h3>
+  <div id="chart-container" *ngFor="let ds of result" >
+  <fusioncharts 
+      width="800"
+      height="500"
+      type="mscolumn2d"
+      dataFormat="JSON"
+      [dataSource]="ds">
+    </fusioncharts>   </div>-->
+     
+
+</div>

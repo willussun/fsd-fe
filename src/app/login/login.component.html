@@ -1,0 +1,29 @@
+<H3>Please Login First</H3>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+
+
+<div class="card shadow">
+    <p class="h4 card-header"></p>
+    <div class="card-body bg-light">
+
+<p class="card-text h6">Please fill the details:</p>
+<form name="company-detail" #f="ngForm">
+    <div class="input-group mt-3 mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Username</span>
+        </div>
+        <input type="text" name="user" class="form-control" [(ngModel)]="userLogin.username" />
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> Password</span>
+        </div>
+        <input type="text" name="passwd" class="form-control" [(ngModel)]="userLogin.password" />
+    </div>
+<button (click)="login()">Login</button>
+</form>

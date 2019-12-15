@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+
+<p class="h4 card-header">List of Companies</p>
+
+<div class="table-responsive">
+    <table class="table text-nowrap">
+        <thead>
+            <tr>
+                <th scope="col">Seq</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Ceo</th>
+                <th scope="col">Stock Exchanges</th>
+                <!-- <th scope="col">BriefWriteup</th> -->
+                <th scope="turnover">Turnover</th>
+                <th scope="col">Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let company1 of resultAllData, let key=index">
+                <td>{{key}}</td>
+                <td>{{company1.companyName}}</td>
+                <td>{{company1.ceo}}</td>
+                <td>&nbsp;
+                    <span *ngFor="let ipoDetail1 of company1.ipoDetailDtoList;  first as isFirst; last as isLast">
+                        <span *ngIf="ipDetial1; then flag1; else notflag1"></span>
+                        <span>
+                            <span>{{ipoDetail1.stockExchangeCode}}</span>
+                            <span *ngIf="isLast; then flag; else notflag">?</span>
+                            <ng-template #flag>
+                                <span></span>
+                            </ng-template>
+                            <ng-template #notflag>
+                                <span>,</span>
+                            </ng-template>
+                        </span>
+                    </span>
+                </td>
+                <!-- <td>{{company1.briefWriteup}}</td> -->
+                <td>{{company1.turnover}}</td>
+                <td scope="col">
+
+                    <a [routerLink]="['/admin/manage-company-ipo']" [queryParams]="{companyId:company1.id}"
+                        routerLinkActive="router-link-active">
+                        Edit</a>
+                    <!-- <button class="btn btn-sm btn-outline-success" routerLink="/manage-company-ipo"></button>
+                    </button> -->
+                </td>
+            </tr>
+        </tbody>
+
+
+        <!-- <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="sectorSelect">Select Sector:</label>
+            </div>
+            <select class="form-control" name="sector-code" [(ngModel)]="company.sectorCode">
+                <option [ngValue]="ipoDetail.ipoCode" *ngFor="let ipoDetail of resultData">
+                    {{ipoDetail.stockExchangeCode}}
+                </option>
+            </select>
+        </div>
+        {{company.sectorCode}} -->
+    </table>
+
+
+</div>

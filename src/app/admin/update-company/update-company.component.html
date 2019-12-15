@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+
+<input type="text" name="key-word" class="form-control" [(ngModel)]="searchKeyword" >
+{{searchKeyword}}
+<button (click)="onSearch(searchKeyword)"></button>
+
+<p class="h4 card-header">List of Companies General</p>
+
+<div class="table-responsive">
+    <table class="table text-nowrap">
+         
+        <thead>
+            <tr>
+                <th scope="col">Seq</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Ceo</th>
+                <th scope="col">About</th>
+                <th scope="col">Turnover</th>
+                <th scope="col">Action</th>
+                <th scope="col">Modify</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let company1 of resultAllData, let key=index">
+                <td>{{key}}</td>
+                <td>{{company1.companyName}}</td>
+                <td>{{company1.ceo}}</td>
+                <td>{{company1.briefWriteup}}</td>
+                <td>{{company1.turnover}}</td>
+                <td scope="col">
+                    <!-- <a [routerLink]="['/admin/manage-company-ipo']" [queryParams]="{id:company1.id}"
+                        routerLinkActive="router-link-active">
+                        Deactivate</a> -->
+                    <button (click)="deactivate(company1.id)">Deactivate</button>
+                </td>
+
+                <td scope="col">
+                    <!-- <a [routerLink]="['/admin/manage-company-ipo']" [queryParams]="{id:company1.id}"
+                        routerLinkActive="router-link-active"> -->
+                        <button (click)="edit(company1.id)">Edit</button>
+
+                        <!-- Edit</a> -->
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    This is the disabled company....
+
+    <table class="table text-nowrap">
+
+   
+        
+    <thead>
+        <tr>
+            <th scope="col">Seq</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Ceo</th>
+            <th scope="col">About</th>
+            <th scope="col">Turnover</th>
+            <th scope="col">Action</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let company2 of resultAllData2, let key=index">
+            <td>{{key}}</td>
+            <td>{{company2.companyName}}</td>
+            <td>{{company2.ceo}}</td>
+            <td>{{company2.briefWriteup}}</td>
+            <td>{{company2.turnover}}</td>
+            <td scope="col">
+                <!-- <a [routerLink]="['/admin/manage-company-ipo']" [queryParams]="{id:company2.id}"
+                    routerLinkActive="router-link-active">
+                    Activate</a> -->
+            </td>
+            <button (click)="activate(company2.id)">Activate</button>
+        </tr>
+    </tbody>
+
+</table>
+
+
+</div>

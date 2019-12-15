@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+
+
+<p class="h4 card-header">Stock Exchange Transaction Data Manipulation</p>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Precheck before Import</span>
+    </div>
+    <input type="file" (change)="preCheck($event)" multiple="false" />
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Excel File Import</span>
+    </div>
+    <input type="file" (change)="upload($event)" multiple="false" />
+</div>
+

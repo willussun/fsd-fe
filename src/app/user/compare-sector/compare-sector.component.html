@@ -1,0 +1,83 @@
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="card shadow">
+    <p class="h4 card-header">Select Sector to compare</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the information</p>
+        <form name="compare" #f="ngForm">
+          
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> Start Date</span>
+                </div>
+                <input type="text" name="start-date" class="form-control" [(ngModel)]="startDate" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">End Date</span>
+                </div>
+                <input type="text" name="end-date" class="form-control" [(ngModel)]="endDate" />
+            </div>
+
+            
+            <label>Select Stock Exchange Code</label>
+            <select class="form-control" name="select-stock-exchange" [(ngModel)]="currentStockExchangeCode" (ngModelChange)="onItemChange($event)">
+
+            <!-- (change)="onItemChange($event.target.value) -->
+                <option [ngValue]="stockExchange.stockExchangeCode" *ngFor="let stockExchange of result3">
+                    {{stockExchange.stockExchangeCode}} ---------- {{stockExchange.stockExchangeName}}
+                </option>
+            </select>
+
+
+            <label>Select Sector</label>
+            <select class="form-control" name="select-sector" [(ngModel)]="sectorCode1">
+                    <option [ngValue]="sector.sectorCode" *ngFor="let sector of result4">
+                        {{sector.sectorName}} ----- {{ sector.sectorCode}}
+                    </option>
+            </select>
+
+            <label>Select Sector</label>
+            <select class="form-control" name="select-sector" [(ngModel)]="sectorCode2">
+                <option [ngValue]="sector.sectorCode" *ngFor="let sector of result4">
+                    {{sector.sectorName}} ----- {{ sector.sectorCode}}
+                </option>
+            </select>
+
+            <label>Select Sector</label>
+            <select class="form-control" name="select-sector" [(ngModel)]="sectorCode3">
+                <option [ngValue]="sector.sectorCode" *ngFor="let sector of result4">
+                    {{sector.sectorName}} ----- {{ sector.sectorCode}}
+                </option>
+            </select>
+          
+    
+
+
+                <input type="radio" value="Y" name="byDuration" id="byDuration1" [(ngModel)] = "duration">
+                <label for=byDuration1>By Year</label>
+                <input type="radio" value="Q" name="byDuration" id="byDuration2" [(ngModel)] = "duration">
+                <label for=byDuration1>By Quarter</label>
+                <input type="radio" value="M" name="byDuration" id="byDuration3" [(ngModel)] = "duration">
+                <label for=byDuration1>By Month</label>
+                <input type="radio" value="W" name="byDuration" id="byDuration4" [(ngModel)] = "duration">
+                <label for=byDuration1>By Week</label>
+
+            <button (click)="showChart(f)" type="button">Show Chart</button>
+            <button (click)="clear(f)" type="button">Clear</button>
+    </form>
+
+<!-- 
+<h3>
+    {{title}}
+  </h3>
+  <div id="chart-container" *ngFor="let ds of result" >
+  <fusioncharts 
+      width="800"
+      height="500"
+      type="mscolumn2d"
+      dataFormat="JSON"
+      [dataSource]="ds">
+    </fusioncharts>   </div>-->
+     
+
+</div>

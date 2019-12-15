@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+
+<div class="card shadow">
+    <p class="h4 card-header">Add New Stock Exchange</p>
+    <div class="card-body bg-light">
+
+
+
+        <p class="card-text h6">Please fill the details:</p>
+        <form name="company-detail" #f="ngForm">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Stock Exchange Code</span>
+                </div>
+                <input type="text" name="stock-exchang-code" class="form-control" [(ngModel)]="stockExchange.stockExchangeCode" />
+            </div>
+            
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Stock Exchange Name</span>
+                </div>
+                <input type="text" name="stock-exchange-name" class="form-control" [(ngModel)]="stockExchange.stockExchangeName" />
+            </div>
+           
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Contact Address</span>
+                </div>
+                <input type="text" name="contact-address" class="form-control" [(ngModel)]="stockExchange.contactAddress" />
+            </div>
+        
+            <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Brief</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" name="board-control" [(ngModel)]="stockExchange.brief"></textarea>
+            </div>
+         
+            
+            <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Remarks</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" name="board-control" [(ngModel)]="stockExchange.remarks"></textarea>
+            </div>
+                        
+            <div class="d-flex no-gutters">
+                <div class="col">
+                    <button type="submit" class="btn btn-success" (click)="onCreateStockExchange(f)">Add</button>
+                    <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                </div>
+                <div>
+                    <button (click)="backClicked()" class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+          
+        </form>
+    </div>

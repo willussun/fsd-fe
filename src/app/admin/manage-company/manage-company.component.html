@@ -1,0 +1,89 @@
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil"> -->
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+
+<div *ngFor="let company1 of resultAllData, let key=index">
+    <table>
+        <td>{{company1.id}}</td>
+        <td>{{company1.companyName}}</td>
+        <td>{{company1.turnover}}</td>
+
+        <td *ngFor="let ipoDetail1 of company1.ipoDetailDtoList;  first as isFirst; last as isLast">
+            <span>{{ipoDetail1.ipoCode}}</span>
+            <span *ngIf="isLast; then flag; else notflag"></span>
+            <ng-template #flag>
+                <span></span>
+            </ng-template>
+            <ng-template #notflag>
+                <span>,</span>
+            </ng-template>
+        </td>
+
+    </table>
+</div>
+
+
+<div class="card shadow">
+    <p class="h4 card-header">Add New Company</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the details:</p>
+        <form name="company-detail" #f="ngForm">
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Company Name</span>
+                </div>
+                <input type="text" name="company-name" class="form-control" [(ngModel)]="company.companyName" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> Turnover in Rs.</span>
+                </div>
+                <input type="number" name="turnover" class="form-control" [(ngModel)]="company.turnover" />
+                <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">CEO</span>
+                </div>
+                <input type="text" name="ceo" class="form-control" [(ngModel)]="company.ceo" />
+            </div>
+            <div class="input-group mt-3 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Board of Director</span>
+                </div>
+                <input type="text" name="board-director" class="form-control" [(ngModel)]="company.boardDirector" />
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Brief Writeup</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea" name="brief-writeup"
+                    [(ngModel)]="company.briefWriteup"></textarea>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label>Select Sector</label>
+                    <select class="form-control" name="select-sector" [(ngModel)]="company.sectorCode">
+                        <option [ngValue]="sector.sectorCode" *ngFor="let sector of result2.data.list">
+                            {{sector.sectorName}} ----- {{ sector.sectorCode}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="d-flex no-gutters">
+                <div class="col">
+                    <button type="submit" class="btn btn-success" (click)="onCreateCompany(f)">Add</button>
+                    <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

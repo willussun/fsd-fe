@@ -1,0 +1,32 @@
+<H3>Stock Exchange Admin</H3>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a  class="navbar-brand" [routerLink]="['/admin/manage-company']" routerLinkActive="router-link-active">Add Company</a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="['/admin/list-company']" routerLinkActive="router-link-active">List Company</a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="['/admin/update-company']" routerLinkActive="router-link-active">Update Company</a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="['/admin/import-data']" routerLinkActive="router-link-active">Import Data</a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="['/admin/manage-exchange']" routerLinkActive="router-link-active">Manage Stock Exchange</a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="['/logout']" routerLinkActive="router-link-active">Logout</a>
+        </div>
+    </div>
+</nav>
+                    
+<router-outlet></router-outlet>

@@ -1,0 +1,125 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+
+<div class="table-responsive">
+    <div> This is the company information</div>
+    <table class="table text-nowrap">
+        <tr>
+            <td>Company Name</td>
+            <td>{{company.companyName}}</td>
+        </tr>
+        <tr>
+            <td>Company Turnover</td>
+            <td>{{company.turnover}}</td>
+        </tr>
+        <tr>
+            <td>Ceo</td>
+            <td>{{company.ceo}}</td>
+        </tr>
+        <tr>
+            <td>Board Director</td>
+            <td>{{company.boardDirector}}</td>
+        </tr>
+        <tr>
+            <td>Brief briefWriteup</td>
+            <td>{{company.briefWriteup}}</td>
+        </tr>
+    </table>
+    <div>This is the company IPO information</div>
+    <table class="table text-nowrap">
+        <thead>
+            <tr>
+                <th scope="col">Open Time</th>
+                <th scope="col">SE Code</th>
+                <th scope="col">Ipo Code</th>
+                <th scope="col">Company Code</th>
+                <th scope="col">Price Per Share</th>
+                <th scope="col">Total Number Share</th>
+                <th scope="col">Remark</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <!-- <tr *ngFor="let ipoDetail1 of company.ipoDetailDtoList, let key=index">
+                <td>{{ipoDetail1.stockExchangeCode}}</td>
+                <td>{{ipoDetail1.ipoCode}}</td>
+                <td>{{ipoDetail1.companyCode}}</td>
+                <td>{{ipoDetail1.pricePerShare}}</td>
+                <td>{{ipoDetail1.totalNumberShare}}</td>
+                <td>{{ipoDetail1.remark}}</td>
+                <td><a [routerLink]="['/admin/manage-exchange']" [queryParams]="{companyId:companyId,seId:ipoDetail1.id}" routerLinkActive="router-link-active">
+                    Change this IPO</a></td>
+            </tr> -->
+
+            <tr *ngFor="let ipoDetail1 of company.ipoDetailDtoList, let key=index">
+                <td>
+                    {{ipoDetail1.openDatetime}}
+                </td>
+                <td>
+                    {{ipoDetail1.stockExchangeCode}}
+                </td>
+
+                <td>
+                    {{ipoDetail1.ipoCode}}
+                    <!-- <input type="text" name="ipo-code" [(ngModel)]="ipoDetail1.ipoCode"> -->
+                </td>
+                <td>
+                    {{ipoDetail1.companyCode}}
+                    <!-- <input type="text" name="company-code" [(ngModel)]="ipoDetail1.companyCode"> -->
+                </td>
+                <td>
+                    {{ipoDetail1.pricePerShare}}
+                    <!-- <input type="text" name="price-per-share" [(ngModel)]="ipoDetail1.pricePerShare"> -->
+                </td>
+                <td>
+                    {{ipoDetail1.totalNumberShare}}
+                    <!-- <input type="text" name="total-number-share" [(ngModel)]="ipoDetail1.totalNumberShare"> -->
+                </td>
+                <td>
+                    {{ipoDetail1.remarks}}
+                    <!-- <input type="text" name="re-mark" [(ngModel)]="ipoDetail1.remarks"> -->
+                </td>
+
+                <!-- <td scope="col">
+                <a [routerLink]="['/manage-exchange']" [queryParams]="{companyId:companyId,seId:ipoDetail1.id,ipoCode:ipoDetail1.ipoCode,
+                            companyCode:ipoDetail1.companyCode,pricePerShare:ipoDetail1.pricePerShare,
+                            totalNumberShare:ipoDetail1.totalNumberShare, remarks:ipoDetail1.remarks
+                        }" routerLinkActive="router-link-active">
+                    Update
+                </a>
+            </td> -->
+
+                <td>
+                    <a [routerLink]="['/admin/update-ipo']" [queryParams]="{companyId:companyId,id:ipoDetail1.id}"
+                        routerLinkActive="router-link-active">
+                        Update</a>
+                </td>
+
+            </tr>
+        </tbody>
+
+        <br>
+        <br>
+
+        <div>You could add additional IPO currently not belong to this company</div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="stock-exchange-selection">Select Stock Exchange to Add:</label>
+            </div>
+            <select class="form-control" name="select-stock-exchange" [(ngModel)]="stockExchangeId">
+                <option [ngValue]="stockExchange.id" *ngFor="let stockExchange of resultAllData3">
+                    {{stockExchange.stockExchangeCode}} ---------- {{stockExchange.stockExchangeName}}
+                </option>
+            </select>
+            <a [routerLink]="['/admin/manage-ipo']" [queryParams]="{companyId:companyId,seId:stockExchangeId}"
+                routerLinkActive="router-link-active">
+                Apply Stock Exchange</a>
+        </div>
+    </table>
+</div>

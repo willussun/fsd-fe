@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+<h3>
+        {{title}}
+      </h3>
+      <!-- <div id="chart-container" *ngFor="let ds of result" > -->
+      <div id="chart-container">
+      <fusioncharts 
+          [width]="800"
+          [height]="500"
+          type="mscolumn2d"
+          dataFormat="JSON"
+          [dataSource]="data"
+      ></fusioncharts>
+      </div>
+      
+      <button (click)="addMore()" type="button">Add More</button>
+      <button (click)="chooseBar()" type="button">Choose Bar</button>
+      
+      <button (click)="addOneMore()" type="button">Add One More</button>
