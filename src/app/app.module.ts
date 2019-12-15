@@ -35,6 +35,9 @@ import { ShowSingleChartComponent } from './user/show-single-chart/show-single-c
 import { CompareCompanyComponent } from './user/compare-company/compare-company.component';
 import { CompareSectorComponent } from './user/compare-sector/compare-sector.component';
 import { CompareComplexComponent } from './user/compare-complex/compare-complex.component';
+import { QueryCompanyComponent } from './user/query-company/query-company.component';
+import { QueryCompanyIpoComponent } from './user/query-company-ipo/query-company-ipo.component';
+import { QueryDetailComponent } from './user/query-detail/query-detail.component';
 
 
 
@@ -61,7 +64,10 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     CompareCompanyComponent,
     ShowSingleChartComponent,
     CompareSectorComponent,
-    CompareComplexComponent
+    CompareComplexComponent,
+    QueryCompanyComponent,
+    QueryCompanyIpoComponent,
+    QueryDetailComponent
   ],
   imports: [
     BrowserModule,

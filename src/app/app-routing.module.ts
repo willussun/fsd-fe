@@ -12,11 +12,14 @@ import { ShowChartComponent } from '././user/show-chart/show-chart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { UserComponent } from './user/user.component';
-import { AdminComponent} from './admin/admin.component';
+import { AdminComponent } from './admin/admin.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CompareCompanyComponent } from './user/compare-company/compare-company.component';
-import { CompareSectorComponent} from './user/compare-sector/compare-sector.component';
-import { CompareComplexComponent} from './user/compare-complex/compare-complex.component';
+import { CompareSectorComponent } from './user/compare-sector/compare-sector.component';
+import { CompareComplexComponent } from './user/compare-complex/compare-complex.component';
+import { QueryCompanyComponent } from './user/query-company/query-company.component';
+import { QueryCompanyIpoComponent} from './user/query-company-ipo/query-company-ipo.component';
+import { QueryDetailComponent} from './user/query-detail/query-detail.component';
 
 const routes: Routes = [
 
@@ -45,9 +48,20 @@ const routes: Routes = [
       },
       {
         path: 'compare-complex', component: CompareComplexComponent
+      },
+      {
+        path: 'query-company', component: QueryCompanyComponent
+      },
+      {
+        path: 'query-company-ipo', component: QueryCompanyIpoComponent
+      },
+      {
+        path: 'query-detail', component: QueryDetailComponent
       }
     ]
   },
+
+
 
   {
     path: 'admin', component: AdminComponent,
@@ -79,13 +93,14 @@ const routes: Routes = [
         path: 'update-ipo', component: UpdateIpoComponent
       }
     ]
-  }
+  },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 
 
-  })
+})
 export class AppRoutingModule { }

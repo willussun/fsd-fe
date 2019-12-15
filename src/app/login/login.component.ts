@@ -26,6 +26,11 @@ export class LoginComponent implements OnInit {
   public code:string;
   public result:any;
 
+  public register()
+  {
+    this.router.navigate(['/user/register']);
+  }
+
   public login() {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })

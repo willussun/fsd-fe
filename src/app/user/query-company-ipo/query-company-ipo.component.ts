@@ -5,13 +5,12 @@ import { Company } from 'src/app/models/company';
 import { StockExchange } from 'src/app/models/stock-exchange';
 import { ActivatedRoute, Router, NavigationExtras } from "@angular/router";
 
-
 @Component({
-  selector: 'app-manage-company-ipo',
-  templateUrl: './manage-company-ipo.component.html',
-  styleUrls: ['./manage-company-ipo.component.scss']
+  selector: 'app-query-company-ipo',
+  templateUrl: './query-company-ipo.component.html',
+  styleUrls: ['./query-company-ipo.component.scss']
 })
-export class ManageCompanyIpoComponent implements OnInit {
+export class QueryCompanyIpoComponent implements OnInit {
 
   constructor(public route: ActivatedRoute, private _http: HttpClient, public router: Router) {
   }
@@ -49,22 +48,22 @@ export class ManageCompanyIpoComponent implements OnInit {
   }
 
 
-  public onUpdateCompany(f: NgForm) {   
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+  // public onUpdateCompany(f: NgForm) {   
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  //   };
     
-      this._http.post<any[]>('/stock-module/companies/'+this.companyId,
-      this.company,
-      httpOptions).subscribe((data) => {
-        console.log(data);
-        alert("Your company is successfully updated.");
-        var navigationExtras: NavigationExtras = {
-          queryParams: { 'companyId': this.companyId }
-        };
-        this.router.navigate(['/admin/manage-company-ipo'], navigationExtras);
-      }
-      );
-  }
+  //     this._http.post<any[]>('/stock-module/companies/'+this.companyId,
+  //     this.company,
+  //     httpOptions).subscribe((data) => {
+  //       console.log(data);
+  //       alert("Your company is successfully updated.");
+  //       var navigationExtras: NavigationExtras = {
+  //         queryParams: { 'companyId': this.companyId }
+  //       };
+  //       this.router.navigate(['/admin/manage-company-ipo'], navigationExtras);
+  //     }
+  //     );
+  // }
 
 }
