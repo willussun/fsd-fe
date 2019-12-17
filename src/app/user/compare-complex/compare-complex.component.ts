@@ -188,7 +188,7 @@ export class CompareComplexComponent implements OnInit {
       console.log(this.result4);
     });
 
-    this._http.get<any[]>('/stock-module/sector/all', { params }).subscribe((data2) => {
+    this._http.get<any[]>('/sector-module/sector/all', { params }).subscribe((data2) => {
     
       console.log(data2);
       this.result2 = data2;

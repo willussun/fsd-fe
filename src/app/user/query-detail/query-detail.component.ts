@@ -32,7 +32,7 @@ export class QueryDetailComponent implements OnInit {
 
       this._http.get<any[]>("/stock-module/query/price", { params }).subscribe(data => {
         this.result = data;
-        console.log(data);
+        // console.log(data);
       });
 
     }

@@ -44,7 +44,7 @@ export class ManageCompanyComponent implements OnInit {
   ngOnInit() {
     // this.genders = [ 'Male', 'Female', 'Other' ];
     // this.communicationModes = [ 'Phone', 'Email' ];
-    this._http.get<any[]>('/stock-module/sector/all').subscribe((data) => {
+    this._http.get<any[]>('/sector-module/sector/all').subscribe((data) => {
         console.log(data);
       this.result2 = data;
       console.log(this.result2);
