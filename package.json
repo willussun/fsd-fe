@@ -24,7 +24,7 @@
     "bootstrap": "^4.4.1",
     "file-saver": "^2.0.2",
     "fusioncharts": "^3.14.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "open-iconic": "^1.1.1",
     "rxjs": "~6.4.0",
